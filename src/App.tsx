@@ -1,7 +1,5 @@
-import React from "react";
-import JourneyCard from "./components/common/JourneyCard";
-import JourneySection from "./components/ui/JourneySection";
 import HeaderSection from "./components/ui/HeaderSection";
+import JourneySection from "./components/ui/JourneySection";
 
 const App = () => {
 	return (
