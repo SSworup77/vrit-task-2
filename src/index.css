@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+
+@theme{
+  --color-red:#f55b5a;
+  --color-purple: #6d65a8;
+  --color-green:#5593a0;
+  --color-brown:#a98864;
+  --color-greener:#1da176;
+  --animate-floating:floating 5s ease-in-out infinite;
+  @keyframes floating{
+    0%{
+      transform:translateY(0px)
+    }
+    50%{
+      transform:translateY(3px)
+    }
+    100%{
+      transform:translateY(0px)
+    }
+  }
+}
+@font-face {
+    font-family: Nohemi;
+    src: url(./assets/Nohemi-Medium-BF6438cc57ddecd.woff) format("woff");
+}
+.nohemi{
+    font-family: Nohemi;
+}
+
+.inner-curve-left {
+  --r: 20px; 
+  --s: 50px; 
+  --a: 10deg; 
+  --p: 50%;   
+
+  aspect-ratio: 2/3;
+  border-top-left-radius: var(--r);
+  border-bottom-left-radius: var(--r);
+  --_m:,#000 calc(100% - 1px),#0000;
+  --_d:(var(--s) + var(--r))*cos(var(--a));
+  mask:
+    radial-gradient(var(--r) at var(--r) calc(var(--p) + var(--_d)) var(--_m)),
+    radial-gradient(var(--r) at var(--r) calc(var(--p) - var(--_d)) var(--_m)),
+    radial-gradient(var(--s) at calc(-1*sin(var(--a))*var(--s)) var(--p),
+      #0000 100%,#000 calc(100% + 1px)) calc(var(--r)*(1 - sin(var(--a)))) 0 no-repeat,
+    linear-gradient(#000 calc(var(--p) - var(--_d)),#0000 0 calc(var(--p) + var(--_d)),#000 0);
+}
+.inner-curve-right {
+  --r: 20px;
+  --s: 50px; 
+  --a: 10deg; 
+  --p: 50%;  
+
+  aspect-ratio: 2/3;
+  border-top-right-radius: var(--r);
+  border-bottom-right-radius: var(--r);
+  --_m:,#000 calc(100% - 1px),#0000;
+  --_r:var(--r) at calc(100% - var(--r));
+  --_d:(var(--s) + var(--r))*cos(var(--a));
+  mask:
+    radial-gradient(var(--_r) calc(var(--p) + var(--_d)) var(--_m)),
+    radial-gradient(var(--_r) calc(var(--p) - var(--_d)) var(--_m)),
+    radial-gradient(var(--s) at calc(100% + sin(var(--a))*var(--s)) var(--p),
+      #0000 100%,#000 calc(100% + 1px)) calc(var(--r)*(sin(var(--a)) - 1)) 0 no-repeat,
+    linear-gradient(#000 calc(var(--p) - var(--_d)),#0000 0 calc(var(--p) + var(--_d)),#000 0);
+}

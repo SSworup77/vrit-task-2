@@ -1,0 +1,43 @@
+@font-face {
+    font-family: Nohemi;
+    src: url(./assets/Nohemi-Medium-BF6438cc57ddecd.woff);
+}
+.nohemi{
+    font-family: Nohemi;
+}
+.inner-curve {
+  --r: 20px;  /* curve radius */
+  --s: 40px;  /* notch radius */
+  --a: 20deg; /* angle for notch depth */
+  --p: 50%;   /* vertical position of the notch center */
+
+  width: 200px;
+  aspect-ratio: 2/3;
+  background: #ED303C;
+  border-radius: var(--r);
+  position: relative;
+
+  --_d: calc((var(--s) + var(--r)) * cos(var(--a)));
+
+  mask:
+    /* Left Top Curve */
+    radial-gradient(var(--r) at var(--r) calc(var(--p) + var(--_d)), #000 calc(100% - 1px), #0000 100%),
+    /* Left Bottom Curve */
+    radial-gradient(var(--r) at var(--r) calc(var(--p) - var(--_d)), #000 calc(100% - 1px), #0000 100%),
+    /* Left Notch */
+    radial-gradient(var(--s) at calc(-1 * sin(var(--a)) * var(--s)) var(--p),
+      #0000 100%, #000 calc(100% + 1px)) calc(var(--r) * (1 - sin(var(--a)))) 0 no-repeat,
+
+    /* Right Top Curve */
+    radial-gradient(var(--r) at calc(100% - var(--r)) calc(var(--p) + var(--_d)), #000 calc(100% - 1px), #0000 100%),
+    /* Right Bottom Curve */
+    radial-gradient(var(--r) at calc(100% - var(--r)) calc(var(--p) - var(--_d)), #000 calc(100% - 1px), #0000 100%),
+    /* Right Notch */
+    radial-gradient(var(--s) at calc(100% + sin(var(--a)) * var(--s)) var(--p),
+      #0000 100%, #000 calc(100% + 1px)) calc(100% - var(--r) * (1 - sin(var(--a)))) 0 no-repeat,
+
+    /* Fallback solid fill */
+    linear-gradient(#000 0 0) no-repeat;
+
+  -webkit-mask: mask;
+}
