@@ -1,6 +1,6 @@
 # Task 2
 
-This task consists of the special hover effects show casing testimonials of SkillShikshya. 
+This task consists of the showcasing flexibility of common components like displaying contents in different orientation and styling. It showcases different stages of learning journey.
 Tool used:
 1. React with typescript
 2. Vite
